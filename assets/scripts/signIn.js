@@ -4,7 +4,7 @@ const config = require('./config')
 
 const onSignIn = (data) => {
   return $.ajax({
-    url: config.apiOrigin + '/sign-in',
+    url: config.apiOrigin + 'sign-in',
     method: 'POST',
     data
   })

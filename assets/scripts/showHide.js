@@ -3,7 +3,7 @@
 const frontPage = function () {
   $('#changePasswordButton').hide()
   $('#sign-out').hide()
-  $('#changePassNotification').text('').hide()
+  $('#directionsSubHeading').text('').hide()
 }
 const signInView = function () {
   $('#signInButton').hide()
@@ -16,8 +16,7 @@ const signOutView = function () {
   $('#signUpButton').show()
   $('#sign-out').hide()
   $('#changePasswordButton').hide()
-  $('#changePassNotification').text('').hide()
-  $('#gameStatsNotification').text('').hide()
+  $('#directionsSubHeading').text('').hide()
 }
 
 module.exports = {

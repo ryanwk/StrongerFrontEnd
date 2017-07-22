@@ -18,6 +18,8 @@
   <header>
     <h1>Stronger</h1>
     <h3 id="directions">Use this fitness tracking app to get swole!</h3>
+    <h4 id="directionsSubHeading"> </h4>
+
   </header>
 
 <aside id="userAuthButtons">
@@ -140,12 +142,12 @@
   <!-- change password button -->
   <button type="button" id="changePasswordButton" class="btn btn-primary btn-lg modalb" data-toggle="modal" data-target="#change-pass-modal"> Change Password
               </button>
-  <div>
+  <!-- <div>
     <p id="changePassNotification">
     </p>
     <p id="gameStatsNotification">
     </p>
-  </div>
+  </div> -->
   <!-- sign out button -->
   <button type="button" id="sign-out" class="btn btn-primary btn-lg">
                 Sign Out
@@ -155,13 +157,59 @@
 
 <nav id="exerciseButtons">
   <!-- exercise data buttons -->
-  <button id="startGame" class="btn btn-primary btn-lg">
-Add Exercise
-</button>
+  <button id="addExercisesButton" class="btn btn-primary btn-lg">
+    Add Exercise
+  </button>
+
+<!-- add exercise modal -->
+<div class="forms signUpHide">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Modal -->
+      <div class="modal fade" id="addExerciseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <button type="button" class="close buttonCloseSignUp" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel-signUp">Add Exercises
+    </h4>
+              <h5 id="addExerciseFailure"> </h5>
+
+            </div>
+
+            <div class="modal-body">
+              <form id="addExerciseForm" class="form-horizontal">
+                <div class="form-group">
+                  <label for="inputName" class="col-sm-2 control-label">Exercise Name</label>
+                  <div class="col-sm-10">
+                    <input name="exercise[name]" type="text" class="form-control" id="inputName" placeholder="Exercise Name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputWeight" class="col-sm-2 control-label">Weight</label>
+                  <div class="col-sm-10">
+                    <input name="exercise[weight]" type="text" class="form-control" id="inputWeight" placeholder="Exercise Weight">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Add Exercise</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <button id="resetButton" class="btn btn-primary btn-lg">
 Delete Exercise
 </button>
-<button type="button" id="gameStatsButton" class="btn btn-primary btn-lg">
+<button type="button" id="showAllExercises" class="btn btn-primary btn-lg">
 Show All Exercises
 </button>
 </nav>
