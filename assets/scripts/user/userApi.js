@@ -1,8 +1,9 @@
 'use strict'
-const config = require('./config')
-const store = require('./store')
+const config = require('./../config')
+const store = require('./../store')
 
-const onSignUp = (data) => {
+const signUpRequest = (data) => {
+  console.log('sign up request, api, invoked')
   return $.ajax({
     url: config.apiOrigin + 'sign-up',
     method: 'POST',
@@ -10,7 +11,8 @@ const onSignUp = (data) => {
   })
 }
 
-const onSignIn = (data) => {
+const signInRequest = (data) => {
+  console.log('sign in request, api, invoked')
   return $.ajax({
     url: config.apiOrigin + 'sign-in',
     method: 'POST',
@@ -18,7 +20,8 @@ const onSignIn = (data) => {
   })
 }
 
-const onSignOut = () => {
+const signOutRequest = () => {
+  console.log('sign out request, api, invoked')
   return $.ajax({
     url: config.apiOrigin + 'sign-out/' + store.user.id,
     method: 'DELETE',
@@ -28,8 +31,8 @@ const onSignOut = () => {
   })
 }
 
-// changes password and stores credentials
-const onChangePassword = function (data) {
+const changePasswordRequest = function (data) {
+  console.log('change password request, api, invoked')
   return $.ajax({
     url: config.apiOrigin + 'change-password/' + store.user.id,
     method: 'PATCH',
@@ -41,8 +44,8 @@ const onChangePassword = function (data) {
 }
 
 module.exports = {
-  onSignUp,
-  onSignIn,
-  onSignOut,
-  onChangePassword
+  signUpRequest,
+  signInRequest,
+  signOutRequest,
+  changePasswordRequest
 }
