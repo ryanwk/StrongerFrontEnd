@@ -1,5 +1,5 @@
 'use strict'
-const showExercisesTemplate = require('../scripts/templates/show-exercises.handlebars')
+const showExercisesTemplate = require('../templates/show-exercises.handlebars')
 // const exerciseShowHide = require('./exerciseShowHide')
 
 const addExerciseSuccess = () => {
@@ -16,10 +16,9 @@ const showAllExercisesSuccess = (data) => {
   $('#directions').text('These are all of your exercises')
   console.log('index exercises worked')
   console.log(data.exercises)
-  $('p').html('')
-  const showExercisesHtml = showExercisesTemplate({ exercises: data.exercises })
-  $('p').append(showExercisesHtml)
-  console.log('handlebars show all exercises in UI working')
+  $('#content').html('')
+  const showExercisesHTML = showExercisesTemplate({ exercises: data.exercises })
+  $('#content').append(showExercisesHTML)
 }
 
 const showAllExercisesFail = () => {

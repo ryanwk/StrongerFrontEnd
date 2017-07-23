@@ -16,8 +16,8 @@ const onShowAllExercisesSubmit = (e) => {
   const data = getFormFields(event.target)
   e.preventDefault()
   exerciseApi.showAllExercisesRequest(data)
-    .done(exerciseUi.showAllGamesSuccess)
-    .fail(exerciseUi.showAllGamesFail)
+    .done(exerciseUi.showAllExercisesSuccess)
+    .fail(exerciseUi.showAllExercisesFail)
 }
 const exerciseHandlers = function () {
   $('#addExerciseFormSubmit').on('submit', onAddExerciseSubmit)
