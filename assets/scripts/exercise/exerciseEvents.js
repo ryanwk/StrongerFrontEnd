@@ -3,32 +3,27 @@ const exerciseUi = require('./exerciseUi')
 const exerciseApi = require('./exerciseApi')
 const getFormFields = require('../../../lib/get-form-fields')
 
-const check = function () {
-  console.log('file required properly')
-}
-
 const onAddExerciseSubmit = (e) => {
   console.log('add exercise submit button, events, invoked')
-  const data = getFormFields(event.target)
   e.preventDefault()
-  exerciseApi.addExercise(data)
-    .then(exerciseUi.addExerciseSuccess)
-    .catch(exerciseUi.addExerciseFail)
+  const data = getFormFields(event.target)
+  exerciseApi.addExerciseRequest(data)
+    .done(exerciseUi.addExerciseSuccess)
+    .fail(exerciseUi.addExerciseFail)
 }
 const onShowAllExercisesSubmit = (e) => {
   console.log('on show all exercises submit button, events, invoked')
   const data = getFormFields(event.target)
   e.preventDefault()
-  exerciseApi.addExercise(data)
+  exerciseApi.showAllExercisesRequest(data)
     .done(exerciseUi.showAllGamesSuccess)
-    .catch(exerciseUi.showAllGamesFail)
+    .fail(exerciseUi.showAllGamesFail)
 }
 const exerciseHandlers = function () {
-  $('#addExerciseButton').on('submit', onAddExerciseSubmit)
-  $('#showAllExercisesButton').on('submit', onShowAllExercisesSubmit)
+  $('#addExerciseFormSubmit').on('submit', onAddExerciseSubmit)
+  $('#showAllExercisesButton').on('click', onShowAllExercisesSubmit)
 }
 
 module.exports = {
-  exerciseHandlers,
-  check
+  exerciseHandlers
 }

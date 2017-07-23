@@ -7,7 +7,7 @@ const addExerciseRequest = (data) => {
   console.log('add exercise request in api invoked')
   console.log(data)
   return $.ajax({
-    url: config.apiOrigin + '/exercises',
+    url: config.apiOrigin + 'exercises',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -16,10 +16,10 @@ const addExerciseRequest = (data) => {
   })
 }
 // this is the GET request used to index all exercises
-const showAllExercises = function (data) {
+const showAllExercisesRequest = function (data) {
   console.log('show all exercises request in api invoked')
   return $.ajax({
-    url: config.apiOrigin + '/exercises',
+    url: config.apiOrigin + 'exercises',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -29,5 +29,5 @@ const showAllExercises = function (data) {
 
 module.exports = {
   addExerciseRequest,
-  showAllExercises
+  showAllExercisesRequest
 }
