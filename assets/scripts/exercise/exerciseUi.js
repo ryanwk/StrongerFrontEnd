@@ -1,8 +1,7 @@
 'use strict'
-const showExercisesTemplate = require('../templates/show-exercises.handlebars')
 // const exerciseShowHide = require('./exerciseShowHide')
 
-const addExerciseSuccess = () => {
+const addExerciseSuccess = (data) => {
   $('#directions').text('You\'ve successfully added an exercise!')
   console.log('add exercises worked')
   $('#addExerciseModal').modal('hide')
@@ -17,16 +16,13 @@ const showAllExercisesSuccess = (data) => {
   $('#directions').text('These are all of your exercises')
   console.log('index exercises worked')
   console.log(data.exercises)
-  $('#content').html('')
-  const showExercisesHTML = showExercisesTemplate({ exercises: data.exercises })
-  $('#content').append(showExercisesHTML)
 }
 
 const showAllExercisesFail = () => {
   $('#directions').text('You don\'t have any exercises yet, click add exercises to create them!')
   console.log('index exercises failed')
 }
-const removeExercisesSuccess = () => {
+const removeExercisesSuccess = (data) => {
   $('#directions').text('Your exercise has been removed!')
   console.log('remove exercises, ui, worked')
   $('#removeExerciseModal').modal('hide')
@@ -36,7 +32,7 @@ const removeExercisesFailure = () => {
   $('#directions').text('Something went wrong, please try again')
   console.log('remove exercise, ui, failed')
 }
-const updateWeightSuccess = () => {
+const updateWeightSuccess = (data) => {
   $('#directions').text('Your exercise has been updated!')
   console.log('updateWeight, ui, worked')
   $('#updateWeightModal').modal('hide')

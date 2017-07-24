@@ -41,7 +41,7 @@ const removeExerciseRequest = (data) => {
 const updateWeightRequest = function (data) {
   console.log('update weight request, api, invoked')
   return $.ajax({
-    url: config.apiOrigin + 'exercises/' + store.exercise.id,
+    url: config.apiOrigin + 'exercises/' + data.exercise.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token

@@ -2,13 +2,20 @@
 const exerciseUi = require('./exerciseUi')
 const exerciseApi = require('./exerciseApi')
 const getFormFields = require('../../../lib/get-form-fields')
+const showExercisesTemplate = require('../templates/show-exercises.handlebars')
+
+const showExerciseList = (data) => {
+  const showExercisesHTML = showExercisesTemplate({ exercises: data.exercises })
+  $('#content').append(showExercisesHTML)
+}
 
 const onAddExerciseSubmit = (e) => {
   console.log('add exercise submit button, events, invoked')
   e.preventDefault()
   const data = getFormFields(event.target)
   exerciseApi.addExerciseRequest(data)
-    .done(exerciseUi.addExerciseSuccess)
+    .done(showExerciseList)
+    .then(exerciseUi.addExerciseSuccess)
     .fail(exerciseUi.addExerciseFail)
 }
 const onShowAllExercisesSubmit = (e) => {
@@ -16,7 +23,8 @@ const onShowAllExercisesSubmit = (e) => {
   const data = getFormFields(event.target)
   e.preventDefault()
   exerciseApi.showAllExercisesRequest(data)
-    .done(exerciseUi.showAllExercisesSuccess)
+    .done(showExerciseList)
+    .then(exerciseUi.showAllExercisesSuccess)
     .fail(exerciseUi.showAllExercisesFail)
 }
 const onRemoveExerciseSubmit = (e) => {
@@ -32,8 +40,8 @@ const onUpdateWeightSubmit = (e) => {
   const data = getFormFields(event.target)
   e.preventDefault()
   exerciseApi.updateWeightRequest(data)
-    .done(exerciseUi.removeExerciseSuccess)
-    .fail(exerciseUi.removeExerciseFailure)
+    .done(exerciseUi.updateWeightSuccess)
+    .fail(exerciseUi.updateWeight)
 }
 const addExerciseModalEscape = () => {
   $('#inputNameAdd').val('')
