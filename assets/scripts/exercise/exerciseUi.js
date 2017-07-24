@@ -5,6 +5,7 @@ const showExercisesTemplate = require('../templates/show-exercises.handlebars')
 const addExerciseSuccess = () => {
   $('#directions').text('You\'ve successfully added an exercise!')
   console.log('add exercises worked')
+  $('#addExerciseModal').modal('hide')
 }
 
 const addExerciseFail = () => {
@@ -25,10 +26,34 @@ const showAllExercisesFail = () => {
   $('#directions').text('You don\'t have any exercises yet, click add exercises to create them!')
   console.log('index exercises failed')
 }
+const removeExercisesSuccess = () => {
+  $('#directions').text('Your exercise has been removed!')
+  console.log('remove exercises, ui, worked')
+  $('#removeExerciseModal').modal('hide')
+}
+
+const removeExercisesFailure = () => {
+  $('#directions').text('Something went wrong, please try again')
+  console.log('remove exercise, ui, failed')
+}
+const updateWeightSuccess = () => {
+  $('#directions').text('Your exercise has been updated!')
+  console.log('updateWeight, ui, worked')
+  $('#updateWeightModal').modal('hide')
+}
+
+const updateWeightFailure = () => {
+  $('#directions').text('Something went wrong, please try again')
+  console.log('update weight, ui, failed')
+}
 
 module.exports = {
   addExerciseSuccess,
   addExerciseFail,
   showAllExercisesSuccess,
-  showAllExercisesFail
+  showAllExercisesFail,
+  removeExercisesSuccess,
+  removeExercisesFailure,
+  updateWeightSuccess,
+  updateWeightFailure
 }

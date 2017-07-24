@@ -27,7 +27,31 @@ const showAllExercisesRequest = function (data) {
   })
 }
 
+const removeExerciseRequest = (data) => {
+  console.log('remove exercise, api, invoked')
+  return $.ajax({
+    url: config.apiOrigin + 'exercises/' + data.exercise.id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const updateWeightRequest = function (data) {
+  console.log('update weight request, api, invoked')
+  return $.ajax({
+    url: config.apiOrigin + 'exercises/' + store.exercise.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
 module.exports = {
   addExerciseRequest,
-  showAllExercisesRequest
+  showAllExercisesRequest,
+  removeExerciseRequest,
+  updateWeightRequest
 }

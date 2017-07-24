@@ -4,12 +4,20 @@ const frontPage = function () {
   $('#changePasswordButton').hide()
   $('#sign-out').hide()
   $('#directionsSubHeading').text('').hide()
+  $('#showAllExercisesButton').hide()
+  $('#deleteButton').hide()
+  $('#addExerciseButton').hide()
+  $('#updateWeightButton').hide()
 }
 const signInView = function () {
   $('#signInButton').hide()
   $('#signUpButton').hide()
   $('#sign-out').show()
   $('#changePasswordButton').show()
+  $('#showAllExercisesButton').show()
+  $('#deleteButton').show()
+  $('#addExerciseButton').show()
+  $('#updateWeightButton').show()
 }
 const signOutView = function () {
   $('#signInButton').show()
@@ -17,6 +25,10 @@ const signOutView = function () {
   $('#sign-out').hide()
   $('#changePasswordButton').hide()
   $('#directionsSubHeading').text('').hide()
+  $('#showAllExercisesButton').hide()
+  $('#deleteButton').hide()
+  $('#addExerciseButton').hide()
+  $('#updateWeightButton').hide()
 }
 
 module.exports = {
