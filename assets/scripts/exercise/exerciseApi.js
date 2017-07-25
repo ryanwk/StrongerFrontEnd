@@ -15,6 +15,7 @@ const addExerciseRequest = (data) => {
     data
   })
 }
+
 // this is the GET request used to index all exercises
 const showAllExercisesRequest = function (data) {
   console.log('show all exercises request in api invoked')

@@ -2,28 +2,24 @@
 const exerciseUi = require('./exerciseUi')
 const exerciseApi = require('./exerciseApi')
 const getFormFields = require('../../../lib/get-form-fields')
-const showExercisesTemplate = require('../templates/show-exercises.handlebars')
-
-const showExerciseList = (data) => {
-  const showExercisesHTML = showExercisesTemplate({ exercises: data.exercises })
-  $('#content').append(showExercisesHTML)
-}
 
 const onAddExerciseSubmit = (e) => {
   console.log('add exercise submit button, events, invoked')
   e.preventDefault()
   const data = getFormFields(event.target)
   exerciseApi.addExerciseRequest(data)
-    .done(showExerciseList)
+    // .done(onShowAllExercisesSubmit)
     .then(exerciseUi.addExerciseSuccess)
     .fail(exerciseUi.addExerciseFail)
 }
+
 const onShowAllExercisesSubmit = (e) => {
-  console.log('on show all exercises submit button, events, invoked')
-  const data = getFormFields(event.target)
   e.preventDefault()
+  console.log('on show all exercises submit button, events, invoked')
+  $('#content').empty()
+  const data = getFormFields(event.target)
   exerciseApi.showAllExercisesRequest(data)
-    .done(showExerciseList)
+    // .done(showExerciseList)
     .then(exerciseUi.showAllExercisesSuccess)
     .fail(exerciseUi.showAllExercisesFail)
 }
