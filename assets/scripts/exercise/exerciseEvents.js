@@ -9,22 +9,21 @@ const onAddExerciseSubmit = (e) => {
   exerciseApi.addExerciseRequest(data)
     .then(function () {
       exerciseUi.addExerciseSuccess
-      onAddRefresh()
+      onShowAllExercisesSubmit()
     })
     .catch(exerciseUi.addExerciseFail)
 }
 
-const onAddRefresh = (data) => {
-  $('#content').empty()
-  exerciseApi.showAllExercisesRequest(data)
-    .then(exerciseUi.showAllExercisesSuccess)
-    .catch(exerciseUi.showAllExercisesFail)
-}
+// const onAddRefresh = (data) => {
+//   $('#content').empty()
+//   exerciseApi.showAllExercisesRequest(data)
+//     .then(exerciseUi.showAllExercisesSuccess)
+//     .catch(exerciseUi.showAllExercisesFail)
+// }
 
 const onShowAllExercisesSubmit = () => {
   $('#content').empty()
-  const data = getFormFields(event.target)
-  exerciseApi.showAllExercisesRequest(data)
+  exerciseApi.showAllExercisesRequest()
     .then(exerciseUi.showAllExercisesSuccess)
     .then(() => $('.deleteButton').on('click', onRemoveExerciseClick))
     .catch(exerciseUi.showAllExercisesFail)

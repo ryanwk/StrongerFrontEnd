@@ -4,7 +4,6 @@ const userApi = require('./userApi')
 const getFormFields = require('../../../lib/get-form-fields')
 
 const onSignUpSubmit = (e) => {
-  console.log('sign up submit button, events, invoked')
   const data = getFormFields(event.target)
   e.preventDefault()
   userApi.signUpRequest(data)
@@ -12,7 +11,6 @@ const onSignUpSubmit = (e) => {
     .fail(userUi.signUpFailure)
 }
 const onSignInSubmit = (e) => {
-  console.log('sign in submit button, events, invoked')
   const data = getFormFields(event.target)
   e.preventDefault()
   userApi.signInRequest(data)
@@ -20,14 +18,12 @@ const onSignInSubmit = (e) => {
     .fail(userUi.signInFail)
 }
 const onSignOutClick = (e) => {
-  console.log('sign out submit button, events, invoked')
   e.preventDefault()
   userApi.signOutRequest()
     .done(userUi.signOutSuccess)
     .fail(userUi.signOutFail)
 }
 const onChangePasswordSubmit = (e) => {
-  console.log('change password submit button, events, invoked')
   const data = getFormFields(event.target)
   e.preventDefault()
   userApi.changePasswordRequest(data)

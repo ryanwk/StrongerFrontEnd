@@ -19,8 +19,6 @@ const addExerciseFail = () => {
 const showAllExercisesSuccess = (data) => {
   $('#directions').text('These are all of your exercises')
   showExerciseList(data)
-  console.log(($('.deleteButton'), 'delete button selector'))
-  $('.deleteButton').on('click', () => console.log('inside delete button'))
 }
 
 const showAllExercisesFail = () => {

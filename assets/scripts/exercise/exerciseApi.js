@@ -15,7 +15,7 @@ const addExerciseRequest = (data) => {
 }
 
 // this is the GET request used to index all exercises
-const showAllExercisesRequest = function (data) {
+const showAllExercisesRequest = function () {
   return $.ajax({
     url: config.apiOrigin + 'exercises',
     method: 'GET',
@@ -26,8 +26,9 @@ const showAllExercisesRequest = function (data) {
 }
 
 const removeExerciseRequest = (data) => {
+  console.log(data, 'this is data')
   return $.ajax({
-    url: config.apiOrigin + 'exercises/' + data.exercise.id,
+    url: config.apiOrigin + 'exercises/' + data,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
