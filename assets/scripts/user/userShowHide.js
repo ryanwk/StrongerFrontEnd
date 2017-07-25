@@ -30,6 +30,7 @@ const signOutView = function () {
   $('#deleteButton').hide()
   $('#addExerciseButton').hide()
   $('#updateWeightButton').hide()
+  $('#content').empty()
 }
 
 module.exports = {

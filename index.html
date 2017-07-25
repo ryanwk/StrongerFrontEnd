@@ -16,6 +16,32 @@
 
 <body class="container-fluid">
 
+  <ul class="nav nav-pills">
+
+    <li role="presentation" class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        Start Here! <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <!-- sign up button -->
+        <button id="signUpButton" type="button" class="btn btn-primary btn-lg modalb" data-toggle="modal" data-target="#sign-up-modal">Sign up
+        </button>
+        <!-- sign in modal -->
+        <button type="button" id="signInButton" class="btn btn-primary btn-lg modalb" data-toggle="modal" data-target="#sign-in-modal"> Sign In
+        </button>
+        <!-- sign out button -->
+        <button type="button" id="sign-out" class="btn btn-primary btn-lg">Sign Out
+        </button>
+        <!-- change password button -->
+        <button type="button" id="changePasswordButton" class="btn btn-primary btn-lg modalb" data-toggle="modal" data-target="#change-pass-modal"> Change Password
+        </button>
+      </ul>
+    </li>
+    <!-- show All exercise button -->
+    <button type="button" id="showAllExercisesButton" class="btn btn-primary btn-lg">
+    Show All Exercises
+    </button>
+  </ul>
   <header>
     <h1>Stronger</h1>
     <h3 id="directions">Use this fitness tracking app to get swole!</h3>
@@ -25,27 +51,11 @@
 
 <aside id="userAuthButtons">
 
-<!-- sign up button -->
-<button id="signUpButton" type="button" class="btn btn-primary btn-lg modalb" data-toggle="modal" data-target="#sign-up-modal">Sign up
-</button>
-<!-- sign in modal -->
-<button type="button" id="signInButton" class="btn btn-primary btn-lg modalb" data-toggle="modal" data-target="#sign-in-modal"> Sign In
-</button>
-<!-- change password button -->
-<button type="button" id="changePasswordButton" class="btn btn-primary btn-lg modalb" data-toggle="modal" data-target="#change-pass-modal"> Change Password
-</button>
-<!-- sign out button -->
-<button type="button" id="sign-out" class="btn btn-primary btn-lg">Sign Out
-</button>
-
 <!-- exercise data buttons -->
 <!-- add exercise button -->
 <button type="button" id="addExerciseButton" class="btn btn-primary btn-lg modalb" data-toggle="modal" data-target="#addExerciseModal"> Add Exercise</button>
 
-<!-- show All exercise button -->
-<button type="button" id="showAllExercisesButton" class="btn btn-primary btn-lg">
-Show All Exercises
-</button>
+
 
         <!-- sign up modal -->
         <div class="forms signUpHide">
@@ -209,7 +219,7 @@ Show All Exercises
             <div class="modal-header">
               <button type="button" class="close removeExerciseClose" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title" id="myModalLabel-remove">Remove Exercise</h4>
-              <h5 id="removeExerciseFailure"> </h5>
+              <h5 id="removeExerciseFail"> </h5>
             </div>
             <div class="modal-body">
               <form id="removeExerciseFormSubmit" class="form-horizontal">

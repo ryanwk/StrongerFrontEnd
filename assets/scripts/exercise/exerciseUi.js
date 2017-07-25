@@ -13,9 +13,9 @@ const addExerciseSuccess = (data) => {
   $('#directions').text('You\'ve successfully added an exercise!')
   console.log('add exercises worked')
   console.log('made it to the ui success')
-  $('#addExerciseModal').modal('hide')
+  // $('#addExerciseModal').modal('hide')
   showExerciseList(data)
-  $('#addExerciseModal').modal('hide')
+  // $('#add-exercise-modal').modal('hide')
 }
 
 const addExerciseFail = () => {
