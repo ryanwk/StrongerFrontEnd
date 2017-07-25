@@ -4,7 +4,6 @@ const exerciseApi = require('./exerciseApi')
 const getFormFields = require('../../../lib/get-form-fields')
 
 const onAddExerciseSubmit = (e) => {
-  console.log('add exercise submit button, events, invoked')
   e.preventDefault()
   const data = getFormFields(event.target)
   exerciseApi.addExerciseRequest(data)
@@ -12,54 +11,52 @@ const onAddExerciseSubmit = (e) => {
       exerciseUi.addExerciseSuccess
       onAddRefresh()
     })
-    .fail(exerciseUi.addExerciseFail)
+    .catch(exerciseUi.addExerciseFail)
 }
 
 const onAddRefresh = (data) => {
-  console.log('add refresh button, events, invoked')
   $('#content').empty()
   exerciseApi.showAllExercisesRequest(data)
     .then(exerciseUi.showAllExercisesSuccess)
-    .fail(exerciseUi.showAllExercisesFail)
+    .catch(exerciseUi.showAllExercisesFail)
 }
 
 const onShowAllExercisesSubmit = () => {
-  console.log('on show all exercises submit button, events, invoked')
   $('#content').empty()
   const data = getFormFields(event.target)
   exerciseApi.showAllExercisesRequest(data)
     .then(exerciseUi.showAllExercisesSuccess)
-    .fail(exerciseUi.showAllExercisesFail)
+    .then(() => $('.deleteButton').on('click', onRemoveExerciseClick))
+    .catch(exerciseUi.showAllExercisesFail)
 }
-const onRemoveExerciseSubmit = (e) => {
+
+const onRemoveExerciseClick = (event) => {
   console.log('exercise removed')
-  const data = getFormFields(event.target)
-  e.preventDefault()
-  exerciseApi.removeExerciseRequest(data)
-    .done(function () {
+  const id = $(event.target).attr('data-id')
+  console.log(id)
+  event.preventDefault()
+  exerciseApi.removeExerciseRequest(id)
+    .then(function () {
       exerciseUi.removeExerciseSuccess
       onShowAllExercisesSubmit()
     })
-    .fail(exerciseUi.removeExerciseFailure)
+    .catch(exerciseUi.removeExerciseFailure)
 }
 const onUpdateWeightSubmit = (e) => {
-  console.log('weight updated')
   const data = getFormFields(event.target)
   e.preventDefault()
   exerciseApi.updateWeightRequest(data)
-    .done(function () {
+    .then(function () {
       exerciseUi.updateWeightSuccess
       onShowAllExercisesSubmit()
     })
-    .fail(exerciseUi.updateWeight)
+    .catch(exerciseUi.updateWeight)
 }
 const addExerciseModalEscape = () => {
   $('#inputNameAdd').val('')
   $('#inputWeightAdd').val('')
 }
-const removeExerciseModalEscape = () => {
-  $('#inputID').val('')
-}
+
 const updateWeightModalEscape = () => {
   $('#inputWeight').val('')
   $('#updateWeightID').val('')
@@ -67,13 +64,12 @@ const updateWeightModalEscape = () => {
 const exerciseHandlers = function () {
   $('#addExerciseFormSubmit').on('submit', onAddExerciseSubmit)
   $('#showAllExercisesButton').on('click', onShowAllExercisesSubmit)
-  $('#removeExerciseFormSubmit').on('submit', onRemoveExerciseSubmit)
   $('#updateWeightFormSubmit').on('submit', onUpdateWeightSubmit)
-  $('.removeExerciseClose').on('click', removeExerciseModalEscape)
   $('.updateWeightClose').on('click', updateWeightModalEscape)
   $('.addExerciseClose').on('click', addExerciseModalEscape)
 }
 
 module.exports = {
-  exerciseHandlers
+  exerciseHandlers,
+  onRemoveExerciseClick
 }
