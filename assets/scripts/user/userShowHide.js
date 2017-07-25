@@ -8,6 +8,7 @@ const frontPage = function () {
   $('#deleteButton').hide()
   $('#addExerciseButton').hide()
   $('#updateWeightButton').hide()
+  // $('#content').hide('')
 }
 const signInView = function () {
   $('#signInButton').hide()

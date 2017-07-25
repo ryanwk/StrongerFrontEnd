@@ -13,8 +13,8 @@ const onAddExerciseSubmit = (e) => {
     .fail(exerciseUi.addExerciseFail)
 }
 
-const onShowAllExercisesSubmit = (e) => {
-  e.preventDefault()
+const onShowAllExercisesSubmit = () => {
+  // e.preventDefault()
   console.log('on show all exercises submit button, events, invoked')
   $('#content').empty()
   const data = getFormFields(event.target)
@@ -28,7 +28,10 @@ const onRemoveExerciseSubmit = (e) => {
   const data = getFormFields(event.target)
   e.preventDefault()
   exerciseApi.removeExerciseRequest(data)
-    .done(exerciseUi.removeExerciseSuccess)
+    .done(function () {
+      exerciseUi.removeExerciseSuccess
+      onShowAllExercisesSubmit()
+    })
     .fail(exerciseUi.removeExerciseFailure)
 }
 const onUpdateWeightSubmit = (e) => {
