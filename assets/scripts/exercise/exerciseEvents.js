@@ -8,18 +8,26 @@ const onAddExerciseSubmit = (e) => {
   e.preventDefault()
   const data = getFormFields(event.target)
   exerciseApi.addExerciseRequest(data)
-    // .done(onShowAllExercisesSubmit)
-    .then(exerciseUi.addExerciseSuccess)
+    .then(function () {
+      exerciseUi.addExerciseSuccess
+      onAddRefresh()
+    })
     .fail(exerciseUi.addExerciseFail)
 }
 
+const onAddRefresh = (data) => {
+  console.log('add refresh button, events, invoked')
+  $('#content').empty()
+  exerciseApi.showAllExercisesRequest(data)
+    .then(exerciseUi.showAllExercisesSuccess)
+    .fail(exerciseUi.showAllExercisesFail)
+}
+
 const onShowAllExercisesSubmit = () => {
-  // e.preventDefault()
   console.log('on show all exercises submit button, events, invoked')
   $('#content').empty()
   const data = getFormFields(event.target)
   exerciseApi.showAllExercisesRequest(data)
-    // .done(showExerciseList)
     .then(exerciseUi.showAllExercisesSuccess)
     .fail(exerciseUi.showAllExercisesFail)
 }
@@ -39,7 +47,10 @@ const onUpdateWeightSubmit = (e) => {
   const data = getFormFields(event.target)
   e.preventDefault()
   exerciseApi.updateWeightRequest(data)
-    .done(exerciseUi.updateWeightSuccess)
+    .done(function () {
+      exerciseUi.updateWeightSuccess
+      onShowAllExercisesSubmit()
+    })
     .fail(exerciseUi.updateWeight)
 }
 const addExerciseModalEscape = () => {

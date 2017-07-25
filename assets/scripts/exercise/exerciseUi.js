@@ -15,6 +15,7 @@ const addExerciseSuccess = (data) => {
   console.log('made it to the ui success')
   $('#addExerciseModal').modal('hide')
   showExerciseList(data)
+  $('#addExerciseModal').modal('hide')
 }
 
 const addExerciseFail = () => {
@@ -38,10 +39,11 @@ const removeExercisesSuccess = (data) => {
   console.log('remove exercises, ui, worked')
   $('#removeExerciseModal').modal('hide')
   showExerciseList(data)
+  $('#removeExerciseModal').modal('hide')
 }
 
 const removeExercisesFailure = () => {
-  $('#directions').text('Something went wrong, please try again')
+  $('#directions').text('Something went wrong!')
   console.log('remove exercise, ui, failed')
 }
 const updateWeightSuccess = (data) => {
