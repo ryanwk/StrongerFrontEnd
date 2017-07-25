@@ -4,11 +4,17 @@
  <ul>Name: {{exercise.name}}</ul>
  <ul>Weight: {{exercise.weight}}</ul>
  <ul>Last Updated: {{exercise.updated_at}}</ul>
+ <ul>id: {{exercise.id}}</ul>
 
 
 
-<ul><button type="button" name="edit-button">Edit</button>
- <button type="button" name="remove-button">Remove</button></ul>
+
+<ul>
+  <!-- update exercise weight button -->
+  <button type="button" id="updateWeightButton" class="btn btn-primary btn-lg modalb" data-toggle="modal" data-target="#updateWeightModal">Update Weight</button>
+  <!-- remove exercise button -->
+  <button type="button" id="deleteButton" class="btn btn-primary btn-lg modalb" data-toggle="modal" data-target="#removeExerciseModal"> Remove Exercise</button>
+</ul>
 
 
 {{/each}}
