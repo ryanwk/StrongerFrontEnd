@@ -8,7 +8,7 @@ const showExerciseList = (data) => {
 }
 
 const addExerciseSuccess = (data) => {
-  $('#directions').text('You\'ve successfully added an exercise!')
+  $('#content').text('You\'ve successfully added an exercise!')
   showExerciseList(data)
 }
 
@@ -17,7 +17,6 @@ const addExerciseFail = () => {
 }
 
 const showAllExercisesSuccess = (data) => {
-  $('#directions').text('These are all of your exercises')
   showExerciseList(data)
 }
 

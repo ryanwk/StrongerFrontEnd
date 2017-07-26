@@ -26,7 +26,6 @@ const showAllExercisesRequest = function () {
 }
 
 const removeExerciseRequest = (data) => {
-  console.log(data, 'this is data')
   return $.ajax({
     url: config.apiOrigin + 'exercises/' + data,
     method: 'DELETE',

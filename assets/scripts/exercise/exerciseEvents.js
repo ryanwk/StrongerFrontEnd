@@ -14,13 +14,6 @@ const onAddExerciseSubmit = (e) => {
     .catch(exerciseUi.addExerciseFail)
 }
 
-// const onAddRefresh = (data) => {
-//   $('#content').empty()
-//   exerciseApi.showAllExercisesRequest(data)
-//     .then(exerciseUi.showAllExercisesSuccess)
-//     .catch(exerciseUi.showAllExercisesFail)
-// }
-
 const onShowAllExercisesSubmit = () => {
   $('#content').empty()
   exerciseApi.showAllExercisesRequest()
@@ -32,7 +25,6 @@ const onShowAllExercisesSubmit = () => {
 const onRemoveExerciseClick = (event) => {
   console.log('exercise removed')
   const id = $(event.target).attr('data-id')
-  console.log(id)
   event.preventDefault()
   exerciseApi.removeExerciseRequest(id)
     .then(function () {

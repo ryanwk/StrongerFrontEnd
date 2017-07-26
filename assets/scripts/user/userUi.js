@@ -12,12 +12,12 @@ const signUpSuccess = (data) => {
 }
 
 const signUpFailure = (data) => {
-  $('#SignUpFailure').text('Sign up did not work, please try again.')
+  $('#signUpFailure').text('Sign up did not work, please try again.')
 }
 
 const signInSuccess = (data) => {
   $('#sign-in-modal').modal('hide')
-  $('#directions').text('Welcome ' + data.user.email + '!' + ' !')
+  $('#directions').text('Welcome ' + data.user.email + '!')
   store.user = data.user
   $('#inputEmail3').val('')
   $('#inputPassword3').val('')
