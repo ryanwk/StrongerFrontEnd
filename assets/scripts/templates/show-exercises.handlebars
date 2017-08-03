@@ -1,21 +1,22 @@
 {{#each exercises as |exercise|}}
+<tr>
+<!-- <li> -->
+ <td><p>{{exercise.name}}</p></td>
+ <td><p>{{exercise.weight}}</p></td>
+ <td><p> {{exercise.updated_at}}</p></td>
+ <td><p>{{exercise.id}}</p></td>
 
-<li>
- <ul>Name: {{exercise.name}}</ul>
- <ul>Weight: {{exercise.weight}}</ul>
- <ul>Last Updated: {{exercise.updated_at}}</ul>
- <ul>id: {{exercise.id}}</ul>
 
-
-<ul>
+<td>
   <!-- update exercise weight button -->
-  <button type="button" id="updateWeightButton" class="btn btn-primary btn-sm modalb" data-toggle="modal" data-target="#updateWeightModal">Update Weight</button>
+  <button data-id="{{exercise.id}}" type="button" id="updateWeightButton" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#updateWeightModal">Update Weight</button>
   <!-- remove exercise button -->
-  <button data-id="{{exercise.id}}" type="button" class="deleteButton"> Remove Exercise</button>
+  <button data-id="{{exercise.id}}" type="button" class="deleteButton"><i data-id="{{game.id}}" class="fa fa-trash" aria-hidden="true"></i></button>
 
 
-</ul>
-</li>
+</td>
+</tr>
+<!-- </li> -->
 
 {{/each}}
 

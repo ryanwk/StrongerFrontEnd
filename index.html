@@ -7,10 +7,12 @@
 
   <!-- Do not add `link` tags unless you know what you are doing -->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-
+  <link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet">
   <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="https://use.fontawesome.com/b9279fc81b.js"></script>
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
 </head>
 
 <body class="container-fluid">
@@ -250,6 +252,39 @@
 </nav>
 
 <p id="content"> </p>
+
+<table id="library"
+         class="table"
+         data-toggle="table"
+         data-sort-name="title"
+         data-sort-order="desc">
+      <thead>
+      <tr>
+          <th data-field="Exercise"
+              data-sortable="true">
+                  Exercise
+          </th>
+          <th data-field="Weight"
+              data-sortable="true">
+                  Weight
+          </th>
+          <th data-field="Date Performed"
+              data-sortable="true">
+                  Date Performed
+          </th>
+          <th data-field="ID"
+              data-sortable="true">
+                  ID
+          </th>
+          <th data-field="edit-delete"
+    data-sortable="false">
+        Edit/Delete
+</th>
+      </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
 <p id="subcontent"> </p>
 
 <footer class="footer">

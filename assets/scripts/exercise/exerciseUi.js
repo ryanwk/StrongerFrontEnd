@@ -4,12 +4,16 @@ const showExercisesTemplate = require('../templates/show-exercises.handlebars')
 const showExerciseList = (data) => {
   $('#content').html('')
   const showExercisesHTML = showExercisesTemplate({ exercises: data.exercises })
-  $('#content').append(showExercisesHTML)
+  $('#library tbody').empty()
+  $('#library tbody').append(showExercisesHTML)
+  $('#library').DataTable()
 }
 
 const addExerciseSuccess = (data) => {
   $('#content').text('You\'ve successfully added an exercise!')
   showExerciseList(data)
+  // $('#library tbody').append(showExerciseList)
+  // $('#library').DataTable()
 }
 
 const addExerciseFail = () => {
