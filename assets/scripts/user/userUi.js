@@ -11,8 +11,8 @@ const signUpSuccess = (data) => {
   $('#signUpButton').hide()
 }
 
-const signUpFailure = (data) => {
-  $('#signUpFailure').text('Sign up did not work, please try again.')
+const signUpFailure = () => {
+  $('#SignUpFailure').text('Sign up did not work, please try again.')
 }
 
 const signInSuccess = (data) => {
@@ -22,6 +22,7 @@ const signInSuccess = (data) => {
   $('#inputEmail3').val('')
   $('#inputPassword3').val('')
   $('#SignInFailure').text('')
+  $('#content').text('Add an exercise to get started!')
   userShowHide.signInView()
 }
 

@@ -7,28 +7,28 @@ const onSignUpSubmit = (e) => {
   const data = getFormFields(event.target)
   e.preventDefault()
   userApi.signUpRequest(data)
-    .done(userUi.signUpSuccess)
-    .fail(userUi.signUpFailure)
+    .then(userUi.signUpSuccess)
+    .catch(userUi.signUpFailure)
 }
 const onSignInSubmit = (e) => {
   const data = getFormFields(event.target)
   e.preventDefault()
   userApi.signInRequest(data)
-    .done(userUi.signInSuccess)
-    .fail(userUi.signInFail)
+    .then(userUi.signInSuccess)
+    .catch(userUi.signInFail)
 }
 const onSignOutClick = (e) => {
   e.preventDefault()
   userApi.signOutRequest()
-    .done(userUi.signOutSuccess)
-    .fail(userUi.signOutFail)
+    .then(userUi.signOutSuccess)
+    .catch(userUi.signOutFail)
 }
 const onChangePasswordSubmit = (e) => {
   const data = getFormFields(event.target)
   e.preventDefault()
   userApi.changePasswordRequest(data)
-    .done(userUi.changePasswordSuccess)
-    .fail(userUi.changePasswordFailure)
+    .then(userUi.changePasswordSuccess)
+    .catch(userUi.changePasswordFailure)
 }
 // when a user clicks the 'x' to close a modal at any point this will clear the email/password/and signUpFaile text of the sign up modal
 const modalEscapeSignUp = () => {
