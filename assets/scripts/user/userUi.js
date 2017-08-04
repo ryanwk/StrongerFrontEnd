@@ -22,7 +22,6 @@ const signInSuccess = (data) => {
   $('#inputEmail3').val('')
   $('#inputPassword3').val('')
   $('#SignInFailure').text('')
-  $('#content').text('Add an exercise to get started!')
   userShowHide.signInView()
 }
 

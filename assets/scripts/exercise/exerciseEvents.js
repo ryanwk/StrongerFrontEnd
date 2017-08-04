@@ -2,6 +2,7 @@
 const exerciseUi = require('./exerciseUi')
 const exerciseApi = require('./exerciseApi')
 const getFormFields = require('../../../lib/get-form-fields')
+const store = require('../store')
 
 const onAddExerciseSubmit = (e) => {
   e.preventDefault()
@@ -23,7 +24,6 @@ const onShowAllExercisesSubmit = () => {
 }
 
 const onRemoveExerciseClick = (event) => {
-  console.log('exercise removed')
   const id = $(event.target).attr('data-id')
   event.preventDefault()
   exerciseApi.removeExerciseRequest(id)
@@ -33,16 +33,23 @@ const onRemoveExerciseClick = (event) => {
     })
     .catch(exerciseUi.removeExerciseFailure)
 }
-const onUpdateWeightSubmit = (e) => {
-  const data = getFormFields(event.target)
-  e.preventDefault()
-  exerciseApi.updateWeightRequest(data)
+const onUpdateWeightSubmit = (event) => {
+  const id = store.updating_id
+  console.log('weight updated', id)
+  const userInput = getFormFields(event.target)
+  event.preventDefault()
+  exerciseApi.updateWeightRequest(userInput, id)
     .then(function () {
       exerciseUi.updateWeightSuccess
       onShowAllExercisesSubmit()
     })
     .catch(exerciseUi.updateWeight)
 }
+// const onUpdateWeightCloseModal = () => {
+//   $('#addExerciseModal').modal('hide')
+//   console.log('closing add ex modal')
+//   // event.preventDefault()
+// }
 const addExerciseModalEscape = () => {
   $('#inputNameAdd').val('')
   $('#inputWeightAdd').val('')
@@ -52,10 +59,12 @@ const updateWeightModalEscape = () => {
   $('#inputWeight').val('')
   $('#updateWeightID').val('')
 }
+
 const exerciseHandlers = function () {
   $('#addExerciseFormSubmit').on('submit', onAddExerciseSubmit)
   $('#showAllExercisesButton').on('click', onShowAllExercisesSubmit)
   $('#updateWeightFormSubmit').on('submit', onUpdateWeightSubmit)
+  // $('#updateWeightFormSubmit').on('submit', onUpdateWeightCloseModal)
   $('.updateWeightClose').on('click', updateWeightModalEscape)
   $('.addExerciseClose').on('click', addExerciseModalEscape)
 }

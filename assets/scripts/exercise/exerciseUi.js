@@ -1,19 +1,25 @@
 'use strict'
 const showExercisesTemplate = require('../templates/show-exercises.handlebars')
+const store = require('../store')
 
 const showExerciseList = (data) => {
-  $('#content').html('')
   const showExercisesHTML = showExercisesTemplate({ exercises: data.exercises })
+  // $('.dataTables_info').val('')
+  $('#library').show()
   $('#library tbody').empty()
   $('#library tbody').append(showExercisesHTML)
   $('#library').DataTable()
+  $('.updateWeightHandlebarsButton').on('click', (event) => {
+    store.updating_id = event.target.dataset.id
+    console.log(store.updating_id)
+  })
 }
 
 const addExerciseSuccess = (data) => {
+  $('#addExerciseModal').modal('hide')
+  // closeModal()
   $('#content').text('You\'ve successfully added an exercise!')
   showExerciseList(data)
-  // $('#library tbody').append(showExerciseList)
-  // $('#library').DataTable()
 }
 
 const addExerciseFail = () => {
