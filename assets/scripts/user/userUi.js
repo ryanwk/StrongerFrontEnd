@@ -17,7 +17,9 @@ const signUpFailure = () => {
 
 const signInSuccess = (data) => {
   $('#sign-in-modal').modal('hide')
-  $('#directions').text('Welcome ' + data.user.email + '!')
+  const email = data.user.email
+  const name = email.substring(0, email.lastIndexOf('@'))
+  $('#directions').text('Welcome ' + name + '!')
   store.user = data.user
   $('#inputEmail3').val('')
   $('#inputPassword3').val('')
@@ -46,7 +48,7 @@ const changePasswordSuccess = (data) => {
   $('#changePasswordFailure').text('')
   $('#currentPassword').val('')
   $('#newPassword').val('')
-  $('#directionsSubHeading').text('Password has been changed!').show()
+  $('#directionsSubHeading').text('Password has been changed').show()
 }
 
 const changePasswordFailure = () => {

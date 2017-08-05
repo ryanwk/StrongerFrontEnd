@@ -1,6 +1,6 @@
 {{#each exercises as |exercise|}}
 <tr>
-<!-- <li> -->
+
  <td><p>{{exercise.name}}</p></td>
  <td><p>{{exercise.weight}}</p></td>
  <td><p> {{exercise.updated_at}}</p></td>
@@ -9,20 +9,13 @@
 
 <td>
   <!-- update exercise weight button -->
-  <button data-id="{{exercise.id}}" type="button" id="updateWeightButton" class="btn btn-primary btn-sm updateWeightHandlebarsButton" data-toggle="modal" data-target="#updateWeightModal"><i class="fa fa-pencil" aria-hidden="true"></i> </button>
+  <button data-id="{{exercise.id}}" type="button" id="updateWeightButton" class="btn btn-primary btn-sm updateWeightHandlebarsButton" data-toggle="modal" data-target="#updateWeightModal"><i data-id="{{exercise.id}}" class="fa fa-pencil" aria-hidden="true"></i> </button>
   <!-- remove exercise button -->
-  <button data-id="{{exercise.id}}" type="button" class="deleteButton"><i class="fa fa-trash" aria-hidden="true"></i></button>
+  <button data-id="{{exercise.id}}" type="button" class="deleteButton"><i data-id="{{exercise.id}}" class="fa fa-trash" aria-hidden="true"></i></button>
 
 
 </td>
 </tr>
-<!-- </li> -->
+
 
 {{/each}}
-
-<!-- data-toggle="modal" -->
-
-  <!-- <button value="{{exercise.id}}" type="button" id="deleteButton" class="btn btn-primary btn-sm modalb" data-toggle="modal" data-target="#removeExerciseModal"> Remove Exercise</button>
-
-<!- taken from remove modal-->
-    <!-- <input value="{{exercise.id}}" name="exercise[id]" type="text" class="form-control" id="inputID" placeholder="ID">  -->

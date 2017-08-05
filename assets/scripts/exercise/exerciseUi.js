@@ -1,17 +1,10 @@
 'use strict'
 const showExercisesTemplate = require('../templates/show-exercises.handlebars')
 const store = require('../store')
-// const events = require('./exerciseEvents')
-
-// const attachHandlerToHandlebars = (event) => {
-//   $('.updateWeightHandlebarsButton').on('click',
-//   store.updating_id = event.target.dataset.id)
-//   console.log(store.updating_id)
-// }
 
 const showExerciseList = (data) => {
   const showExercisesHTML = showExercisesTemplate({ exercises: data.exercises })
-  // $('.dataTables_info').val('')
+  $('#library_info').hide()
   $('#library').show()
   $('#library tbody').empty()
   $('#library tbody').append(showExercisesHTML)
@@ -23,8 +16,8 @@ const showExerciseList = (data) => {
 }
 
 const addExerciseSuccess = (data) => {
-  // $('#addExerciseModal').modal('hide')
-  $('#directions').text('You\'ve successfully added an exercise!')
+  $('#addExerciseModal').modal('hide')
+  $('#directions').text('You\'ve successfully added an exercise')
   showExerciseList(data)
   console.log('addExercise success', data)
 }
@@ -35,21 +28,21 @@ const addExerciseFail = () => {
 
 const showAllExercisesSuccess = (data) => {
   showExerciseList(data)
+  $('#library_info').hide()
 }
 
 const showAllExercisesFail = () => {
   $('#directions').text('Something went wrong')
 }
 const removeExercisesSuccess = (data) => {
-  $('#directions').text('Your exercise has been removed!')
-  showExerciseList(data)
+  $('#directions').text('Your exercise has been removed')
 }
 
 const removeExercisesFailure = () => {
   $('#directions').text('Something went wrong!')
 }
 const updateWeightSuccess = (data) => {
-  $('#directions').text('Your exercise has been updated!')
+  $('#directions').text('Your exercise has been updated')
   $('#updateWeightModal').modal('hide')
   showExerciseList(data)
 }
