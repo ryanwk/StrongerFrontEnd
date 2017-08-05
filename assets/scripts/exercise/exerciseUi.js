@@ -11,7 +11,6 @@ const showExerciseList = (data) => {
   $('#library').DataTable()
   $('.updateWeightHandlebarsButton').on('click', (event) => {
     store.updating_id = event.target.dataset.id
-    console.log(store.updating_id)
   })
 }
 
@@ -19,7 +18,6 @@ const addExerciseSuccess = (data) => {
   $('#addExerciseModal').modal('hide')
   $('#directions').text('You\'ve successfully added an exercise')
   showExerciseList(data)
-  console.log('addExercise success', data)
 }
 
 const addExerciseFail = () => {
@@ -28,7 +26,7 @@ const addExerciseFail = () => {
 
 const showAllExercisesSuccess = (data) => {
   showExerciseList(data)
-  $('#library_info').hide()
+  // $('#library_info').hide()
 }
 
 const showAllExercisesFail = () => {

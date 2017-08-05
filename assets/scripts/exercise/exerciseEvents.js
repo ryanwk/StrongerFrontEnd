@@ -4,8 +4,8 @@ const exerciseApi = require('./exerciseApi')
 const getFormFields = require('../../../lib/get-form-fields')
 const store = require('../store')
 
-const onAddExerciseSubmit = (e) => {
-  e.preventDefault()
+const onAddExerciseSubmit = (event) => {
+  event.preventDefault()
   const data = getFormFields(event.target)
   exerciseApi.addExerciseRequest(data)
     .then(exerciseUi.addExerciseSuccess)
