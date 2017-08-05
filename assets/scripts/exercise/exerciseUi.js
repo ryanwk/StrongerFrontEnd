@@ -26,7 +26,6 @@ const addExerciseFail = () => {
 
 const showAllExercisesSuccess = (data) => {
   showExerciseList(data)
-  // $('#library_info').hide()
 }
 
 const showAllExercisesFail = () => {
