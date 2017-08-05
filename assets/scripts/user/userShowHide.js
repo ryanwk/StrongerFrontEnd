@@ -9,6 +9,7 @@ const frontPage = function () {
   $('#addExerciseButton').hide()
   $('#updateWeightButton').hide()
   $('#content').val('')
+  $('#library').hide()
 }
 const signInView = function () {
   $('#signInButton').hide()
@@ -31,6 +32,7 @@ const signOutView = function () {
   $('#addExerciseButton').hide()
   $('#updateWeightButton').hide()
   $('#content').empty()
+  $('#library').hide()
 }
 
 module.exports = {

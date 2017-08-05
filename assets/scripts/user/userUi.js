@@ -11,8 +11,8 @@ const signUpSuccess = (data) => {
   $('#signUpButton').hide()
 }
 
-const signUpFailure = (data) => {
-  $('#signUpFailure').text('Sign up did not work, please try again.')
+const signUpFailure = () => {
+  $('#SignUpFailure').text('Sign up did not work, please try again.')
 }
 
 const signInSuccess = (data) => {

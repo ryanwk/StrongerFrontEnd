@@ -5,6 +5,7 @@ const config = require('./config')
 const userShowHide = require('./user/userShowHide')
 const userEvents = require('./user/userEvents')
 const exerciseEvents = require('./exercise/exerciseEvents')
+const dt = require('datatables.net')
 
 $(() => {
   setAPIOrigin(location, config)
