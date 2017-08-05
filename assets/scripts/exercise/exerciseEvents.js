@@ -16,10 +16,10 @@ const onAddExerciseSubmit = (e) => {
 }
 
 const onShowAllExercisesSubmit = () => {
-  $('#content').empty()
   exerciseApi.showAllExercisesRequest()
     .then(exerciseUi.showAllExercisesSuccess)
     .then(() => $('.deleteButton').on('click', onRemoveExerciseClick))
+    // .then(() => $('.updateButton').on('submit', onUpdateWeightSubmit))
     .catch(exerciseUi.showAllExercisesFail)
 }
 
@@ -43,7 +43,7 @@ const onUpdateWeightSubmit = (event) => {
       exerciseUi.updateWeightSuccess
       onShowAllExercisesSubmit()
     })
-    .catch(exerciseUi.updateWeight)
+    .catch(exerciseUi.updateWeightFailure)
 }
 // const onUpdateWeightCloseModal = () => {
 //   $('#addExerciseModal').modal('hide')
