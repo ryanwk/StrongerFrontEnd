@@ -17,7 +17,6 @@ $(() => {
   userShowHide.frontPage()
   userEvents.addUserHandlers()
   exerciseEvents.exerciseHandlers()
-  console.log($('.deleteButton'), 'delete button selector')
 })
 // use require without a reference to ensure a file is bundled
 require('./example')

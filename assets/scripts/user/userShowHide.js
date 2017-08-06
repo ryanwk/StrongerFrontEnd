@@ -9,9 +9,6 @@ const frontPage = function () {
   $('#addExerciseButton').hide()
   $('#updateWeightButton').hide()
   $('#library_filter').hide()
-  $('#library_paginate').hide()
-  $('#library_info').hide()
-  $('#library_length').hide()
   $('#library').hide()
 }
 const signInView = function () {
@@ -23,6 +20,8 @@ const signInView = function () {
   $('#deleteButton').show()
   $('#addExerciseButton').show()
   $('#updateWeightButton').show()
+  $('#library').hide()
+  $('#library_filter').hide()
 }
 
 const signOutView = function () {
@@ -37,9 +36,6 @@ const signOutView = function () {
   $('#updateWeightButton').hide()
   $('#library').hide()
   $('#library_filter').hide()
-  $('#library_paginate').hide()
-  $('#library_length').hide()
-  $('#library_info').hide()
 }
 
 module.exports = {
