@@ -4,8 +4,8 @@ const store = require('../store')
 
 const showExerciseList = (data) => {
   const showExercisesHTML = showExercisesTemplate({ exercises: data.exercises })
-  $('#library_info').hide()
   $('#library').show()
+  $('#library_filter').show()
   $('#library tbody').empty()
   $('#library tbody').append(showExercisesHTML)
   $('#library').DataTable()
