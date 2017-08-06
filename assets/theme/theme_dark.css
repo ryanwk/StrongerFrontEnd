@@ -1,46 +1,24 @@
-
 @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700");
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700");
-
 html {
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-*,
-*:before,
-*:after {
+*, *:before, *:after {
   -webkit-box-sizing: inherit;
-     -moz-box-sizing: inherit;
-          box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
 }
 
-*,
-*:active:focus,
-*:focus {
+*, *:active:focus, *:focus {
   outline: 0 !important;
 }
 
 *:focus {
   -webkit-box-shadow: none !important;
-          box-shadow: none !important;
-}
-
-@-webkit-viewport {
-  width: device-width;
-}
-
-@-moz-viewport {
-  width: device-width;
-}
-
-@-ms-viewport {
-  width: device-width;
-}
-
-@viewport {
-  width: device-width;
+  box-shadow: none !important;
 }
 
 html {
@@ -95,33 +73,38 @@ a {
   color: #fff;
 }
 
-a:focus,
-a:hover {
+a:focus, a:hover {
   color: white;
   text-decoration: none;
 }
+
 
 /**
  * form
  * --------------------------------------------------
  */
+
 .form-control {
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   color: #fff;
 }
+
 .form-label {
   font-size: 12px;
   font-weight: 600;
 }
+
+
 /**
  * buttons
  * --------------------------------------------------
  */
+
 .btn {
   -webkit-transition: all 0.2s ease-in-out;
-       -o-transition: all 0.2s ease-in-out;
-          transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   display: inline-block;
   line-height: 1;
   overflow: hidden;
@@ -129,7 +112,7 @@ a:hover {
   padding: 22px 39px 22px 40px;
   border: 2px solid transparent;
   -webkit-border-radius: 2px;
-          border-radius: 2px;
+  border-radius: 2px;
   font-family: "Poppins", Arial, sans-serif;
   font-size: 12px;
   font-weight: 600;
@@ -138,9 +121,9 @@ a:hover {
   letter-spacing: 1px;
   white-space: nowrap;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .btn i {
@@ -154,25 +137,24 @@ a:hover {
   color: #fff;
 }
 
-.btn-default:focus,
-.btn-default:hover {
+.btn-default:focus, .btn-default:hover {
   border-color: #fff;
   background-color: #fff;
   color: #131417;
 }
 
-.btn-default:active,
-.btn-default:active:focus,
-.btn-default:active:hover {
+.btn-default:active, .btn-default:active:focus, .btn-default:active:hover {
   border-color: #fff;
   background-color: #fff;
   color: #131417;
 }
+
 
 /**
  * common
  * --------------------------------------------------
  */
+
 html, body {
   height: 100%;
   overflow: hidden;
@@ -181,7 +163,6 @@ html, body {
 body {
   position: relative;
 }
-
 
 .section-heading {
   margin-bottom: 30px;
@@ -199,14 +180,16 @@ body {
   font-style: italic;
   letter-spacing: 1px;
 }
+
 #library, .dataTables_filter {
   font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 13px;
   letter-spacing: 1px;
 }
 
+
 /* custom dataTable search box*/
 
 .dataTables_length, .dataTables_paginate, .dataTables_info {
-   display: none;
+  display: none;
 }
