@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Stronger</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet">
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="https://use.fontawesome.com/b9279fc81b.js"></script>
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+
+</head>
+
+<body class="container-fluid">
+
+  <ul class="nav nav-pills">
+
+    <li role="presentation" class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        Menu
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <!-- sign up button -->
+        <button id="signUpButton" type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#sign-up-modal"><span>Sign up</span>
+        </button>
+        <!-- sign in modal -->
+        <button type="button" id="signInButton" class="btn btn-default btn-md" data-toggle="modal" data-target="#sign-in-modal"> Sign In
+        </button>
+        <!-- sign out button -->
+        <button type="button" id="sign-out" class="btn btn-default btn-md">Sign Out
+        </button>
+        <!-- change password button -->
+        <button type="button" id="changePasswordButton" class="btn btn-default btn-md" data-toggle="modal" data-target="#change-pass-modal"> Change Password
+        </button>
+      </ul>
+    </li>
+    <!-- show All exercise button -->
+    <button type="button" id="showAllExercisesButton" class="btn btn-default">
+    Show All Exercises
+    </button>
+    <!-- add exercise button -->
+    <button type="button" id="addExerciseButton" class="btn btn-default" data-toggle="modal" data-target="#addExerciseModal"> Add Exercise</button>
+    <!-- <input type="text" id="searchbox"></input> -->
+  </ul>
+  <header class="text-center">
+    <h1 class="section-heading">Stronger</h1>
+    <h4 class="section-subtitle" id="directions">Use this fitness tracking app to get swole!</h4>
+    <h4 id="directionsSubHeading"> </h4>
+  </header>
+
+  <aside id="userAuthButtons">
+
+    <!-- sign up modal -->
+    <div class="forms signUpHide">
+      <!-- Modal -->
+      <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <button type="button" class="close buttonCloseSignUp" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel-signUp">Sign up
+            </h4>
+              <h5 id="SignUpFailure"> </h5>
+
+            </div>
+
+            <div class="modal-body">
+              <form id="sign-up-form" class="form-horizontal">
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                  <div class="col-sm-10">
+                    <input name="credentials[email]" type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                  <div class="col-sm-10">
+                    <input name="credentials[password]" type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Sign up</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- sign in modal -->
+    <div class="forms">
+      <!-- Modal-->
+      <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close buttonCloseSignIn" data-dismiss="modal" aria-label="Close"><span class="buttonClose" aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+              <h5 id="SignInFailure"> </h5>
+            </div>
+            <div class="modal-body">
+              <form id="sign-in-form" class="form-horizontal">
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                  <div class="col-sm-10">
+                    <input name="credentials[email]" type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                  <div class="col-sm-10">
+                    <input name="credentials[password]" type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Sign in</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- change password modal -->
+    <div class="modal fade" id="change-pass-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn close buttonCloseChangePassword" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Change Password</h4>
+            <h5 id="changePasswordFailure"> </h5>
+          </div>
+          <div class="modal-body">
+            <form id="change-pwd">
+              <fieldset>
+                <input id="currentPassword" class='pop-up-fields text-field' type='password' placeholder='Current Password' name='passwords[old]'> <br> <br>
+                <input id="newPassword" class='pop-up-fields text-field' type='password' placeholder='New Password' name='passwords[new]'><br> <br>
+                <input class="btn" type="submit" name="submit" value="Change Password">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- end user Auth button aside -->
+  </aside>
+
+
+  <nav id="exerciseButtons">
+
+    <!-- add exercise modal -->
+    <div class="forms">
+      <!-- Modal -->
+      <div class="modal fade" id="addExerciseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close addExerciseClose" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Add Exercises</h4>
+              <h5 id="addExerciseFailure"> </h5>
+            </div>
+            <div class="modal-body">
+              <form id="addExerciseFormSubmit" class="form-horizontal">
+                <div class="form-group">
+                  <label for="inputNameAdd" class="col-sm-2 control-label">Exercise Name</label>
+                  <div class="col-sm-10">
+                    <input name="exercise[name]" type="text" class="form-control" id="inputNameAdd" placeholder="Exercise Name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputWeight" class="col-sm-2 control-label">Weight</label>
+                  <div class="col-sm-10">
+                    <input name="exercise[weight]" type="number" class="form-control" id="inputWeightAdd" placeholder="Exercise Weight (only accepts numbers)">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Add Exercise</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- update exercise weight modal-->
+    <div class="forms">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Modal contents -->
+          <div class="modal fade" id="updateWeightModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close updateWeightClose" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Update Weight</h4>
+                  <h5 id="updateWeightFailure"> </h5>
+                </div>
+                <div class="modal-body">
+                  <form id="updateWeightFormSubmit" class="updateButton form-horizontal">
+                    <div class="form-group">
+                      <label for="inputWeight" class="col-sm-2 control-label">Exercise Weight</label>
+                      <div class="col-sm-10">
+                        <input name="exercise[weight]" type="number" class="form-control" id="inputWeight" placeholder="Exercise Weight (only accepts numbers)">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Update Weight</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </nav>
+
+  <p id="content"> </p>
+
+
+  <table id="library" class="table" data-toggle="table" data-sort-name="title" data-sort-order="desc">
+    <thead>
+      <tr>
+        <th data-field="Exercise" data-sortable="true">
+          Exercise
+        </th>
+        <th data-field="Weight" data-sortable="true">
+          Weight
+        </th>
+        <th data-field="Date Performed" data-sortable="true">
+          Date Performed
+        </th>
+
+        <th data-field="edit-delete" data-sortable="false">
+          Edit/Delete
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+  <p id="subcontent"> </p>
+
+  <footer class="footer">
+    <!-- <h3>Created by Ryan Koch</h3> -->
+  </footer>
+
+</body>
+
+</html>
