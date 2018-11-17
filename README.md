@@ -11,7 +11,7 @@ Then I smartened up and started using excel to track my progress.
 I have years of data, it's not very clean, or efficient but it beats a pen and paper. Excel has a lot of functionality that I don't need and the app is cluttered and unpleasant to use.
 So I'm creating an app that would essentially act
 as a tool for me to track the weight I lift from week to week using my current
-routine. Other users could sign up and make add their own exercises and to track their exercise data as well.
+routine.
 
 ## Write between 3-5 user stories
 As a user, I want to sign up, so that I can sign-in.
